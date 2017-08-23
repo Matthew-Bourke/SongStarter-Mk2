@@ -82,6 +82,8 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VdW-P3-21E">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" red="0.4107200748" green="0.88939475400000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="sectionIndexColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -101,7 +103,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="librariesList" destination="VdW-P3-21E" id="1Ok-g2-4hR"/>
-                        <segue destination="SxG-Us-fIw" kind="show" id="Jov-vM-Kms"/>
+                        <segue destination="SxG-Us-fIw" kind="show" identifier="tracksSegue" id="Jov-vM-Kms"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E02-WA-JBl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -111,7 +113,7 @@
         <!--Tracks-->
         <scene sceneID="COY-Zz-dP3">
             <objects>
-                <viewController id="SxG-Us-fIw" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="SxG-Us-fIw" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6GV-gh-SRt"/>
                         <viewControllerLayoutGuide type="bottom" id="bY9-Tr-TWH"/>
@@ -119,7 +121,20 @@
                     <view key="view" contentMode="scaleToFill" id="s5F-3g-Pa5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5zj-h3-LEy">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5zj-h3-LEy" firstAttribute="top" secondItem="6GV-gh-SRt" secondAttribute="bottom" id="FdP-Li-CZi"/>
+                            <constraint firstAttribute="trailing" secondItem="5zj-h3-LEy" secondAttribute="trailing" id="LRc-qk-5k5"/>
+                            <constraint firstItem="5zj-h3-LEy" firstAttribute="leading" secondItem="s5F-3g-Pa5" secondAttribute="leading" id="Zlj-Kq-ZYd"/>
+                            <constraint firstItem="bY9-Tr-TWH" firstAttribute="top" secondItem="5zj-h3-LEy" secondAttribute="bottom" id="knO-4T-8zw"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Tracks" id="7nC-Tk-lOE">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="mY1-A2-hdX"/>

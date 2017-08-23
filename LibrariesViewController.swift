@@ -21,9 +21,8 @@ class LibrariesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     
     ///          Variables          ///
-    
-    // Variable 'libraries' of type 'Library' is initialised as an empty array of libraries
     var libraries : [Library] = []
+    
     
     
     
@@ -35,19 +34,13 @@ class LibrariesViewController: UIViewController, UITableViewDelegate, UITableVie
         
         // Do any additional setup after loading the view.
         
-        librariesList.reloadData()
+        libraries = getAllLibraries()
+        print("GETTING")
         
         // Initialise libraries tableview
         librariesList.delegate = self
         librariesList.dataSource = self
-        
-        let allTracks = Library()
-        allTracks.name = "All"
-        allTracks.tracks = []
-        
-        libraries.append(allTracks)
-        
-        
+
     }
     
     
@@ -73,12 +66,12 @@ class LibrariesViewController: UIViewController, UITableViewDelegate, UITableVie
         return cell
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let preVC = segue.destination as! ViewController
-        preVC.libraries = libraries
-        
-        
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let library = libraries[indexPath.row]
+        performSegue(withIdentifier: "tracksSegue", sender: library)
     }
+    
     
     
     
@@ -91,11 +84,18 @@ class LibrariesViewController: UIViewController, UITableViewDelegate, UITableVie
         addVC.addTextField { (nameTF) in
             let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
             let addAction = UIAlertAction(title: "Add", style: .default, handler: { (action) in
-                let library = Library()
+                
+                
+                let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+                
+                let library = Library(context: context)
                 library.name = nameTF.text!
                 library.tracks = []
                 
-                self.libraries.append(library)
+                (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                
+                self.libraries = getAllLibraries()
+                
                 self.librariesList.reloadData()
                 
             })
@@ -104,7 +104,7 @@ class LibrariesViewController: UIViewController, UITableViewDelegate, UITableVie
             addVC.addAction(addAction)
             
             self.present(addVC, animated: true, completion: nil)
-           
+            
         }
         
     }

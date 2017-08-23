@@ -7,17 +7,20 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController {
     
     
-    var libraries : [Library] = []
     
     ///         View Did Load           ///
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        
+        
 
        
         
@@ -26,11 +29,7 @@ class ViewController: UIViewController {
     
     ///         Functions           ///
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let nextVC = segue.destination as! LibrariesViewController
-        nextVC.libraries = libraries
-    }
-    
+
 
     ///         Actions         ///
 

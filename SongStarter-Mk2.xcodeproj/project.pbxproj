@@ -16,7 +16,7 @@
 		C9062F901F4D5C8D0048EEFF /* SongStarter_Mk2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9062F8F1F4D5C8D0048EEFF /* SongStarter_Mk2Tests.swift */; };
 		C9062F9B1F4D5C8D0048EEFF /* SongStarter_Mk2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9062F9A1F4D5C8D0048EEFF /* SongStarter_Mk2UITests.swift */; };
 		C9062FAB1F4D63490048EEFF /* LibrariesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9062FAA1F4D63490048EEFF /* LibrariesViewController.swift */; };
-		C9062FAE1F4D63EC0048EEFF /* Libraries.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9062FAD1F4D63EC0048EEFF /* Libraries.swift */; };
+		C9062FB11F4D9BC60048EEFF /* CoreDataHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9062FB01F4D9BC60048EEFF /* CoreDataHelp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +52,7 @@
 		C9062F9A1F4D5C8D0048EEFF /* SongStarter_Mk2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongStarter_Mk2UITests.swift; sourceTree = "<group>"; };
 		C9062F9C1F4D5C8D0048EEFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9062FAA1F4D63490048EEFF /* LibrariesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LibrariesViewController.swift; path = ../LibrariesViewController.swift; sourceTree = "<group>"; };
-		C9062FAD1F4D63EC0048EEFF /* Libraries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Libraries.swift; sourceTree = "<group>"; };
+		C9062FB01F4D9BC60048EEFF /* CoreDataHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +105,7 @@
 			children = (
 				C9062F771F4D5C8D0048EEFF /* AppDelegate.swift */,
 				C9062FAC1F4D63A60048EEFF /* View Controllers */,
+				C9062FB01F4D9BC60048EEFF /* CoreDataHelp.swift */,
 				C9062FAF1F4D641A0048EEFF /* Models */,
 				C9062F7B1F4D5C8D0048EEFF /* Main.storyboard */,
 				C9062F811F4D5C8D0048EEFF /* Assets.xcassets */,
@@ -145,7 +146,6 @@
 		C9062FAF1F4D641A0048EEFF /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				C9062FAD1F4D63EC0048EEFF /* Libraries.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -289,8 +289,8 @@
 			files = (
 				C9062FAB1F4D63490048EEFF /* LibrariesViewController.swift in Sources */,
 				C9062F801F4D5C8D0048EEFF /* SongStarter_Mk2.xcdatamodeld in Sources */,
-				C9062FAE1F4D63EC0048EEFF /* Libraries.swift in Sources */,
 				C9062F7A1F4D5C8D0048EEFF /* ViewController.swift in Sources */,
+				C9062FB11F4D9BC60048EEFF /* CoreDataHelp.swift in Sources */,
 				C9062F781F4D5C8D0048EEFF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
