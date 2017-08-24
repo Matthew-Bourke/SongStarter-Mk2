@@ -35,12 +35,11 @@ class LibrariesViewController: UIViewController, UITableViewDelegate, UITableVie
         // Do any additional setup after loading the view.
         
         libraries = getAllLibraries()
-        print("GETTING")
         
         // Initialise libraries tableview
         librariesList.delegate = self
         librariesList.dataSource = self
-
+        
     }
     
     
@@ -72,7 +71,28 @@ class LibrariesViewController: UIViewController, UITableViewDelegate, UITableVie
         performSegue(withIdentifier: "tracksSegue", sender: library)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let nextVC = segue.destination as! TracksViewController
+        nextVC.library = sender as! Library
+    }
     
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let library = libraries[indexPath.row]
+            if library.name == "All Tracks" {
+                return
+            } else {
+                let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+                context.delete(library)
+                (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                
+                libraries = getAllLibraries()
+                librariesList.reloadData()
+            }
+        }
+    }
+
     
     
     

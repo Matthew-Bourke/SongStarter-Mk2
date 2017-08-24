@@ -14,9 +14,8 @@ func createInitialLibrary() {
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     let allLibrary = Library(context: context)
-    allLibrary.name = "All"
-    
-    print("CREATED")
+    allLibrary.name = "All Tracks"
+
     
     (UIApplication.shared.delegate as! AppDelegate).saveContext()
     
@@ -29,11 +28,25 @@ func getAllLibraries() -> [Library] {
     do {
         let libraries = try context.fetch(Library.fetchRequest()) as! [Library]
         if libraries.count == 0 {
-            print("NONE")
+
             createInitialLibrary()
             return getAllLibraries()
         }
         return libraries
+        
+    } catch {}
+    
+    return []
+}
+
+
+func getAllTracks() -> [Track] {
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    do {
+        let tracks = try context.fetch(Track.fetchRequest()) as! [Track]
+
+        return tracks
         
     } catch {}
     

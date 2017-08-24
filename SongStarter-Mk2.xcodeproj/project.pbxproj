@@ -17,6 +17,7 @@
 		C9062F9B1F4D5C8D0048EEFF /* SongStarter_Mk2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9062F9A1F4D5C8D0048EEFF /* SongStarter_Mk2UITests.swift */; };
 		C9062FAB1F4D63490048EEFF /* LibrariesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9062FAA1F4D63490048EEFF /* LibrariesViewController.swift */; };
 		C9062FB11F4D9BC60048EEFF /* CoreDataHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9062FB01F4D9BC60048EEFF /* CoreDataHelp.swift */; };
+		C9062FB31F4DB4520048EEFF /* TracksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9062FB21F4DB4520048EEFF /* TracksViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		C9062F9C1F4D5C8D0048EEFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9062FAA1F4D63490048EEFF /* LibrariesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LibrariesViewController.swift; path = ../LibrariesViewController.swift; sourceTree = "<group>"; };
 		C9062FB01F4D9BC60048EEFF /* CoreDataHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelp.swift; sourceTree = "<group>"; };
+		C9062FB21F4DB4520048EEFF /* TracksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TracksViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 			children = (
 				C9062F791F4D5C8D0048EEFF /* ViewController.swift */,
 				C9062FAA1F4D63490048EEFF /* LibrariesViewController.swift */,
+				C9062FB21F4DB4520048EEFF /* TracksViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9062FB31F4DB4520048EEFF /* TracksViewController.swift in Sources */,
 				C9062FAB1F4D63490048EEFF /* LibrariesViewController.swift in Sources */,
 				C9062F801F4D5C8D0048EEFF /* SongStarter_Mk2.xcdatamodeld in Sources */,
 				C9062F7A1F4D5C8D0048EEFF /* ViewController.swift in Sources */,
