@@ -34,12 +34,12 @@ class LibrariesViewController: UIViewController, UITableViewDelegate, UITableVie
         
         // Do any additional setup after loading the view.
         
+        // Load all libraries from CoreData
         libraries = getAllLibraries()
         
         // Initialise libraries tableview
         librariesList.delegate = self
         librariesList.dataSource = self
-        
     }
     
     
@@ -65,21 +65,28 @@ class LibrariesViewController: UIViewController, UITableViewDelegate, UITableVie
         return cell
     }
     
+    
+    // When library is selected, move to tracks VC for selected library
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let library = libraries[indexPath.row]
         performSegue(withIdentifier: "tracksSegue", sender: library)
     }
     
+    
+    // Prepare to pass library for segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let nextVC = segue.destination as! TracksViewController
         nextVC.library = sender as! Library
     }
     
     
+    // Allow Swipe to Delete
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let library = libraries[indexPath.row]
+            
+            // Disallow delete for library 'All Tracks'
             if library.name == "All Tracks" {
                 return
             } else {
@@ -98,13 +105,16 @@ class LibrariesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     ///         Actions         ///
     
+    // Add new library
     @IBAction func addTapped(_ sender: Any)  {
         // Add a library
         let addVC = UIAlertController(title: "New Library", message: "Enter the name of the new library", preferredStyle: .alert)
+        // Set library name
         addVC.addTextField { (nameTF) in
+            // Create alert controller options
+            nameTF.text = "New Library \(self.libraries.count + 1)"
             let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
             let addAction = UIAlertAction(title: "Add", style: .default, handler: { (action) in
-                
                 
                 let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
                 
@@ -112,41 +122,35 @@ class LibrariesViewController: UIViewController, UITableViewDelegate, UITableVie
                 library.name = nameTF.text!
                 library.tracks = []
                 
+                // Careless user insurance for library name
+                if nameTF.text == "" {
+                    library.name = "New Library \(self.libraries.count + 1)"
+                } else {
+                    library.name = nameTF.text!
+                }
+                
+                
+                // Save new library to CoreData
                 (UIApplication.shared.delegate as! AppDelegate).saveContext()
                 
                 self.libraries = getAllLibraries()
+ 
                 
                 self.librariesList.reloadData()
-                
             })
             
+            // Add actions to alert controller
             addVC.addAction(cancelAction)
             addVC.addAction(addAction)
             
+            // Present alert controller
             self.present(addVC, animated: true, completion: nil)
             
         }
         
     }
     
-    
-    
-    /*   @IBAction func addTapped(_ sender: Any) {
-     // This is where the CoreData stuff starts
-     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-     
-     let sound = Sound(context: context)
-     
-     sound.name = nameTF.text
-     sound.audio = NSData(contentsOf: audioURL!)
-     
-     (UIApplication.shared.delegate as! AppDelegate).saveContext()
-     // End of core data stuff
-     // Seems like its just default code to memorise //
-     
-     navigationController!.popViewController(animated: true)
-     }*/
-    
+
     
     
     

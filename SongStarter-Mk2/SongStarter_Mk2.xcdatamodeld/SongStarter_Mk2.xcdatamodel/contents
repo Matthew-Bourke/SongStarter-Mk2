@@ -7,10 +7,11 @@
     <entity name="Track" representedClassName="Track" syncable="YES" codeGenerationType="class">
         <attribute name="audio" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="owner" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="library" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Library" inverseName="tracks" inverseEntity="Library" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Track" positionX="-54" positionY="-9" width="128" height="88"/>
         <element name="Library" positionX="-254" positionY="-99" width="128" height="73"/>
+        <element name="Track" positionX="-54" positionY="-97" width="128" height="103"/>
     </elements>
 </model>
